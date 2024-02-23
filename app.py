@@ -21,6 +21,9 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_ACCESS_TOKEN)
 
+@app.route('/')
+def hello():
+    return 'hello world!'
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -49,5 +52,5 @@ def handle_message(event):
 
 if __name__ == "__main__":
    app.run()
-    # port = int(os.getenv("PORT", 3000))
-    # app.run(host="0.0.0.0", port=port)
+#     port = int(os.getenv("PORT", 3000))
+#     app.run(host="0.0.0.0", port=port)
